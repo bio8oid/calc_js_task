@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,900;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+        <div class="calc-wrapper">
+
+            <div class="display-wrapper">
+
+                <div class="top-display">
+                    <form id="form" action="">
+                        <input id="history" type="text" aria-label="form-display" >
+                    </form>
+                </div>
+
+                <div class="result-display">
+                    <input id="main" type="text" disabled>
+                </div>
+
+            </div>
+
+            <div class="keyboard-wrapper">
+
+                <div class="row row-1">
+                    <button type="button" class="button operator dark-character-button" id="percentage" value="%">%</button>
+                    <button type="button" class="button operator dark-character-button" id="plus-minus" value="+-">+/-</button>
+                    <button type="button" class="button operator dark-character-button" id="cancel" value="C">C</button>
+                    <button type="button" class="button operator" id="divide" value="/">/</button>
+                </div>
+
+                <div class="row row-2">
+                    <button type="button" class="button number dark-character-button" id="seven" value="7">7</button>
+                    <button type="button" class="button number dark-character-button" id="eight" value="8">8</button>
+                    <button type="button" class="button number dark-character-button" id="nine" value="9">9</button>
+                    <button type="button" class="button operator" id="multiply" value="*">x</button>
+                </div>
+
+                <div class="row row-3">
+                    <button type="button" class="button number dark-character-button" id="four" value="4">4</button>
+                    <button type="button" class="button number dark-character-button" id="five" value="5">5</button>
+                    <button type="button" class="button number dark-character-button" id="six" value="6">6</button>
+                    <button type="button" class="button operator" id="minus" value="-">-</button>
+                </div>
+
+                <div class="row row-4">
+                    <button type="button" class="button number dark-character-button" id="one" value="1">1</button>
+                    <button type="button" class="button number dark-character-button" id="two" value="2">2</button>
+                    <button type="button" class="button number dark-character-button" id="three" value="3">3</button>
+                    <button type="button" class="button operator" id="plus" value="+">+</button>
+                </div>
+
+                <div class="row row-5">
+                    <button type="button" class="button number dark-character-button zero-button" id="zero"
+                        value="0">0</button>
+                    <button type="button" class="button number dark-character-button" id="dot" value=".">.</button>
+                    <button type="button" class="button operator equal-button" id="equal" value="=">=</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="slogan-container">
+
+            <div class="slogan-text-wrapper">
+                <h2>If you love my work,</h2>
+                <img src="images/heart_icon.png" alt="heart-icon">
+                <h2> I love you.</h2>
+            </div>
+
+            <div class="freebie-button">
+                <a href="https://github.com/bio8oid/calc_js_task" target="blank">
+                    <p>bio8oid</p>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

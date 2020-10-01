@@ -1,0 +1,260 @@
+/* ==== GLOBAL ==== */
+
+body {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+  font-family: "Lato", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+/* ==== CONTAINER ==== */
+
+.main-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background: rgb(145, 86, 225);
+  background: linear-gradient(
+    143deg,
+    rgba(0, 0, 102, 1) 0%,
+    rgba(255, 151, 104, 1) 100%,
+    rgba(246, 246, 246, 1) 100%
+  );
+}
+
+/* ==== DISPLAY ==== */
+
+.display-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 140px;
+  background: black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 25px;
+
+  .top-display {
+    height: 28px;
+  }
+
+  .result-display {
+    height: 100px;
+    width: 310px;
+    text-align: right;
+
+    input {
+      font-size: 52px;
+      font-weight: 300;
+      color: #fff;
+      margin: 0;
+    }
+  }
+
+  input {
+    color: #a1626e;
+    font-size: 20px;
+    font-weight: 600;
+    background: black;
+    text-align: right;
+    border: none;
+    width: 310px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #a1626e;
+    opacity: 0.2;
+  }
+}
+
+/* ==== KEYBOARD ==== */
+
+.row {
+  display: flex;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  height: 90px;
+  width: 90px;
+  border: none;
+  font-size: 20px;
+  font-family: "Lato", sans-serif;
+  outline: none;
+
+  &:focus {
+    border: none;
+  }
+
+  &:active {
+    border: none;
+  }
+}
+
+.operator {
+  background: linear-gradient(45deg, rgba(0, 0, 102, .2) 0%, rgba(145, 86, 225, 1) 61%);
+  color: #fff;
+
+  @media not all and (hover: none) {
+    &:hover {
+      background: linear-gradient(225deg, rgba(0, 0, 102, .2) 0%, rgba(145, 86, 225, 1) 61%);
+    }
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.dark-character-button {
+  color: #212121;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 241, 1) 61%);
+
+  @media not all and (hover: none) {
+    &:hover {
+      background: linear-gradient(225deg, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 241, 1) 61%);
+    }
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.equal-button {
+  width: 180px;
+  background: rgba(255, 151, 104, 1);
+  border-bottom-right-radius: 5px;
+  color: #fff;
+
+  @media not all and (hover: none) {
+    &:hover {
+      background: rgba(255, 151, 104, .5);
+    }
+  }
+}
+
+.zero-button {
+  border-bottom-left-radius: 5px;
+}
+
+/* ==== SLOGAN ==== */
+
+.slogan-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  margin: 50px;
+
+  h2 {
+    font-weight: 300;
+  }
+}
+
+.slogan-text-wrapper {
+  display: flex;
+  height: 80px;
+
+  img {
+    margin: 0 5px;
+    transform: translateY(30px);
+    height: 35px;
+  }
+}
+
+.freebie-button {
+  height: 28px;
+  width: 100px;
+  background: #fff;
+  border-radius: 50px;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    color: #212121;
+    line-height: 26px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  @media not all and (hover: none) {
+    &:hover {
+      background: #cc7a00;
+      box-shadow: 0 0 10px #000;
+    }
+  }
+}
+
+/* ==== MEDIA ==== */
+
+@media (max-width: 1140px) {
+  .slogan-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    padding-bottom: 50px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .calc-wrapper {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .display-wrapper {
+    height: 25vh;
+  }
+
+  .keyboard-wrapper {
+    height: 70vh;
+  }
+
+  .slogan-container {
+    display: none;
+  }
+
+  button {
+    min-height: 15vh;
+    flex: 1;
+  }
+
+  .equal-button {
+    flex: 2;
+  }
+}
