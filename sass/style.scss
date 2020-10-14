@@ -28,7 +28,7 @@ html {
   // background: rgb(145, 86, 225);
   background: linear-gradient(
     143deg,
-    rgba(0, 0, 102, 1) 0%,
+    rgba(0, 0, 82, 10) 20%,
     rgba(255, 151, 104, 1) 100%,
     rgba(246, 246, 246, 1) 100%
   );
@@ -176,6 +176,7 @@ button {
 
   h2 {
     font-weight: 300;
+    transform: translateY(-50px);
   }
 }
 
@@ -225,6 +226,7 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     width: 100vw;
     padding-bottom: 50px;
     margin: 0;
