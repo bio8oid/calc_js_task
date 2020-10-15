@@ -20,14 +20,23 @@
         }
 
         numbersHistoryHandle = num => {
-            if (this.currentNumber !== '') {
-                this.numbersHistory.push(Number(this.currentNumber))
-                this.totalCharactersHistory.push(Number(this.currentNumber));
+            if (num !== '') {
+                this.numbersHistory.push(Number(num))
+                this.totalCharactersHistory.push(Number(num));
             } else {
                 this.numbersHistory.push(0)
                 // this.numbersHistory.push(num)
             }
         }
+        // numbersHistoryHandle = num => {
+        //     if (this.currentNumber !== '') {
+        //         this.numbersHistory.push(Number(this.currentNumber))
+        //         this.totalCharactersHistory.push(Number(this.currentNumber));
+        //     } else {
+        //         this.numbersHistory.push(0)
+        //         // this.numbersHistory.push(num)
+        //     }
+        // }
 
         operandsHistoryHandle = operand => {
             this.operandsHistory.push(operand)
@@ -74,14 +83,15 @@
                         this.handleDisplays(this.resultOfTwoNumbers);
                         break;
                     case '/':
-                        this.resultOfTwoNumbers = firstNumber / secondNumber;
-                        this.handleDisplays(this.resultOfTwoNumbers);
+                        if (secondNumber !== 0) {
+                           this.resultOfTwoNumbers = firstNumber / secondNumber;
+                        this.handleDisplays(this.resultOfTwoNumbers); 
+                        }
+                        
                         break;
                     case '%':
                         this.resultOfTwoNumbers = ((firstNumber / 100) * secondNumber);
                         this.handleDisplays(this.resultOfTwoNumbers);
-                        // this.historyDisplay.value = this.resultOfTwoNumbers
-                        // this.currentNumber = this.resultOfTwoNumbers;
                         break;
                     case '+-':
                         if (Math.sign(this.display.value) === 1 ) {
@@ -118,28 +128,26 @@
         }
 
         handleOperators = e => {
-
-
+            
+            
+            
             // set and add entered numbers to memory
-
-            // if (e.target.value === 'C') {
+            
             if (e.target.value === 'C') {
-
-                this.clear();
-
-            } else {
-               
-                this.operand = e.target.value;
-                this.operandsHistoryHandle(this.operand);
                 
-                // add entered numbers to memory
-                this.numbersHistoryHandle()
+                this.clear();
+                
+            } else {
+                // if (this.operandStatus === false) {
+                    
+                    
+                    // add entered numbers to memory
+                    this.operand = e.target.value;
+                    this.operandsHistoryHandle(this.operand);
+                    
+                this.numbersHistoryHandle(this.currentNumber)
                 this.currentNumber = '';
     
-                // if (this.operandsHistory[this.operandsHistory.length - 1] === '%') {
-                //                 console.log('kutas')
-                //                 this.handleDisplays(this.resultOfTwoNumbers, this.resultOfTwoNumbers);
-
                 if (this.operandsHistory.length > 1 && this.operand !== '%' && this.operandsHistory[this.operandsHistory.length - 2] !== '%') {
 
                     console.log('fired')
@@ -153,20 +161,27 @@
             }
 
             const ArrCharacters = this.totalCharactersHistory
+            const firstArrCharacter = ArrCharacters[0]
             const lastArrCharacter = ArrCharacters[ArrCharacters.length - 1]
 
             if (typeof lastArrCharacter === 'number') {
                 if (this.operand !== '+-') ArrCharacters.push(this.operand);
             } else {
                 if (this.operandsHistory[this.operandsHistory.length - 2] === '%') {
+
                     ArrCharacters.splice(ArrCharacters.length - 1, 1, this.operand)
-                    this.totalCharactersHistory = [this.resultOfTwoNumbers, this.operand]
+                    if (this.resultOfTwoNumbers !== 0) {
+                        this.totalCharactersHistory = [this.resultOfTwoNumbers, this.operand]
+                    }
+
                 } else {
                     ArrCharacters.splice(ArrCharacters.length - 1, 1, this.operand)
                 }
-
             }
-  
+
+            if (typeof firstArrCharacter !== 'number') {
+                ArrCharacters.splice(0, 1)
+    }
             this.handleDisplays();
 
             console.log('operand:', this.operand)
@@ -175,9 +190,10 @@
 
 
         handleButtons = e => {
-
         }
 
+
+        
         handleDisplays = (x,y) => {
             // if (y !== undefined) {
             //     console.log('y:', y)
@@ -217,3 +233,7 @@
     //     const cancelButton = document.getElementById('cancel')
     //     const posNegButton = document.getElementById('positive-negative')
 })();
+
+
+// Always add 0 when decimal pressed
+// negative positive not working again
