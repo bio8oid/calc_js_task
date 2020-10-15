@@ -19,24 +19,26 @@
                 this.display.value = 0
         }
 
+        // numbersHistoryHandle = num => {
+        //     if (num !== '') {
+        //         this.numbersHistory.push(Number(num))
+        //         this.totalCharactersHistory.push(Number(num));
+        //     } else {
+        //     if (this.operandStatus === false) this.numbersHistory.push(0)
+        //         this.numbersHistory.push(0)
+                // this.numbersHistory.push(num)
+        //     }
+        // }
+
         numbersHistoryHandle = num => {
-            if (num !== '') {
-                this.numbersHistory.push(Number(num))
-                this.totalCharactersHistory.push(Number(num));
+            if (this.currentNumber !== '') {
+                this.numbersHistory.push(Number(this.currentNumber))
+                this.totalCharactersHistory.push(Number(this.currentNumber));
             } else {
-                this.numbersHistory.push(0)
+                if (this.operandStatus === false) this.numbersHistory.push(0)
                 // this.numbersHistory.push(num)
             }
         }
-        // numbersHistoryHandle = num => {
-        //     if (this.currentNumber !== '') {
-        //         this.numbersHistory.push(Number(this.currentNumber))
-        //         this.totalCharactersHistory.push(Number(this.currentNumber));
-        //     } else {
-        //         this.numbersHistory.push(0)
-        //         // this.numbersHistory.push(num)
-        //     }
-        // }
 
         operandsHistoryHandle = operand => {
             this.operandsHistory.push(operand)
@@ -79,15 +81,16 @@
                         this.handleDisplays(this.resultOfTwoNumbers);
                         break;
                     case '*':
+                        if (firstNumber !== 0 && secondNumber !== 0) {
                         this.resultOfTwoNumbers = firstNumber * secondNumber;
-                        this.handleDisplays(this.resultOfTwoNumbers);
+                        this.handleDisplays(this.resultOfTwoNumbers)
+                        }
                         break;
                     case '/':
                         if (secondNumber !== 0) {
                            this.resultOfTwoNumbers = firstNumber / secondNumber;
                         this.handleDisplays(this.resultOfTwoNumbers); 
                         }
-                        
                         break;
                     case '%':
                         this.resultOfTwoNumbers = ((firstNumber / 100) * secondNumber);
@@ -145,14 +148,15 @@
                     this.operand = e.target.value;
                     this.operandsHistoryHandle(this.operand);
                     
-                this.numbersHistoryHandle(this.currentNumber)
+                // this.numbersHistoryHandle(this.currentNumber)
+                this.numbersHistoryHandle()
                 this.currentNumber = '';
     
                 if (this.operandsHistory.length > 1 && this.operand !== '%' && this.operandsHistory[this.operandsHistory.length - 2] !== '%') {
 
                     console.log('fired')
                     this.calculation(this.operandsHistory[this.operandsHistory.length -2]);
-                    // this.operandsHistory.splice(0, 1);
+                    this.operandsHistory.splice(0, 1);
                 } else {
                     this.calculation(this.operand);
                         
