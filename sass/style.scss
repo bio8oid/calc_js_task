@@ -25,13 +25,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  // background: rgb(145, 86, 225);
-  background: linear-gradient(
-    143deg,
-    rgba(0, 0, 82, 10) 20%,
-    rgba(255, 151, 104, 1) 100%,
-    rgba(246, 246, 246, 1) 100%
-  );
+  background: linear-gradient(143deg, rgba(0, 0, 82, 10) 20%, rgba(255, 151, 104, 1) 100%, rgba(246, 246, 246, 1) 100%);
 }
 
 /* ==== DISPLAY ==== */
@@ -61,6 +55,7 @@ html {
       font-weight: 300;
       color: #fff;
       margin: 0;
+      overflow: auto;
     }
   }
 
@@ -72,6 +67,7 @@ html {
     text-align: right;
     border: none;
     width: 310px;
+    overflow: auto;
 
     &:focus {
       outline: none;
@@ -119,12 +115,12 @@ button {
 }
 
 .operand {
-  background: linear-gradient(45deg, rgba(0, 0, 102, .2) 0%, rgba(145, 86, 225, 1) 61%);
+  background: linear-gradient(45deg, rgba(0, 0, 102, 0.2) 0%, rgba(145, 86, 225, 1) 61%);
   color: #fff;
 
   @media not all and (hover: none) {
     &:hover {
-      background: linear-gradient(225deg, rgba(0, 0, 102, .2) 0%, rgba(145, 86, 225, 1) 61%);
+      background: linear-gradient(225deg, rgba(0, 0, 102, 0.2) 0%, rgba(145, 86, 225, 1) 61%);
     }
   }
 
@@ -156,7 +152,7 @@ button {
 
   @media not all and (hover: none) {
     &:hover {
-      background: rgba(255, 151, 104, .5);
+      background: rgba(255, 151, 104, 0.5);
     }
   }
 }
@@ -204,7 +200,7 @@ button {
 
   p {
     color: #212121;
-    line-height: 26px;
+    line-height: 28px;
     margin: 0;
     font-size: 14px;
     font-weight: 600;
