@@ -92,3 +92,5 @@ typings/
 .yarn/
 .yarn
 *.yarn
+.pnp.js
+*.pnp.js
