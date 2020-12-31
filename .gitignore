@@ -90,3 +90,5 @@ typings/
 
 # Yarn 
 .yarn/
+.yarn
+*.yarn
