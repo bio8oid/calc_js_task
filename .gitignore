@@ -88,7 +88,5 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-# Yarn 
-.yarn/
-.yarn
-*.yarn
+# Yarn
+.pnp.js
