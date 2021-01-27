@@ -94,3 +94,6 @@ typings/
 *.yarn
 .pnp.js
 *.pnp.js
+
+# Mac files
+.DS_Store
